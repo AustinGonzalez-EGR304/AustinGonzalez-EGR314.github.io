@@ -9,6 +9,10 @@ Based on this calculation, I decided to use a **12 V, 5000 mA wall power supply*
 
 Although the system is designed to connect to the **shared team power system or USB power**, those sources are not capable of supplying the current required to operate the stepper motor subsystem. When powered from shared team power or USB, the **motor functionality is disabled**, but the microcontroller and low-power components can still operate for debugging and communication purposes.
 
+## Power Usage
+Given the issues in my design and the lack of motor operation, I only used a very small portion of the power I had budgeted. However, if those systems had functioned properly, I believe the allocated power would have been sufficient for the system.
+
+Since I had four separate ways to power the board, I should have incorporated additional protection mechanisms into the power system.
 ### Power Rails
 
 There are **two separate power levels** on this board:

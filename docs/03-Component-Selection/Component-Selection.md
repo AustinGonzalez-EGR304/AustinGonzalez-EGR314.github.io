@@ -6,6 +6,15 @@ title: Module's Selected Major Components
 
 I am responsible for the Camera Actuation subsystem. This subsystem controls two stepper motor drivers to rotate a low-weight camera and uses a Hall effect sensor to establish a repeatable “home” position reference. The microcontroller generates STEP and DIR pulse signals (and enable control) for each motor driver, reads the Hall sensor as a digital interrupt input for homing, and communicates with the Control subsystem through a UART RX/TX link. The subsystem uses a 12V motor power rail for the stepper drivers/motors and a regulated 3.3V rail for the microcontroller and logic signals. The design prioritizes clean power distribution, grounding, and debouncing/filtering to prevent motor noise from causing resets or false home triggers.
 
+
+## Summary table 
+| Subsystem        | Component        | Part Number        | Key Specs                                   | Reason for Selection |
+|-----------------|------------------|--------------------|---------------------------------------------|----------------------|
+| Microcontroller | ESP32-S3         | ESP32-S3-WROOM     | 3.3V logic, dual-core, UART capable         | Handles motor control, UART communication, and sensor input in a single platform |
+| Power           | Buck Converter   | AP63203WU-7        | 3.3V output, 2A max, 3.8–32V input          | Provides sufficient current headroom and efficient 3.3V regulation from 12V rail |
+| Sensor          | Hall Effect      | DRV5053            | Analog output, 2.7–6V operation             | Enables precise home position detection using ADC thresholding |
+| Actuator        | Stepper Motor    | NEMA 14 Bipolar    | 1.8° step angle, ~0.4A/phase, 12V           | Provides balance of precision, torque, and compact size for camera movement |
+| Motor Driver    | Stepper Driver   | DRV8825            | Up to 45V, ~2.2A/phase, microstepping       | Reliable, widely supported, and compatible with 12V system and STEP/DIR control |
 ---
 
 ## Module's Selected Major Components

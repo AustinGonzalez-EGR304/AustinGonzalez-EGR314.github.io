@@ -7,7 +7,7 @@ tags:
 ## Overview
 my modules PCB is a 50x100mm 2 layer pcb that utlilizes the parts listed in the BOM. 
 ## 3D Rendering of PCB
-![alt text](3DRENDERPCB314.png) 
+![alt text](PCB 3d Render.png) 
 ## Front side copper
 ![alt text](FRONTcu314.png)
 ## Back side copper
