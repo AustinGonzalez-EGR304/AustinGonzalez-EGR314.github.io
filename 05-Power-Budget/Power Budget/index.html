@@ -387,12 +387,52 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../10-Reflection/Reflection/" class="md-tabs__link">
+        <a href="../../10-Hardware%20V2.0/Hardware%20V2.0/" class="md-tabs__link">
           
   
     
   
-  10 Reflection
+  10 Hardware V2.0
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../11-Resources/Resources/" class="md-tabs__link">
+          
+  
+    
+  
+  11 Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../12-Reflection/Reflection/" class="md-tabs__link">
+          
+  
+    
+  
+  12 Reflection
 
         </a>
       </li>
@@ -766,7 +806,16 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Power System Overview">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Usage">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1019,11 +1068,103 @@
         
   
   
-    <a href="../../10-Reflection/Reflection/" class="md-nav__link">
+    <a href="../../10-Hardware%20V2.0/Hardware%20V2.0/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    10 Reflection
+    10 Hardware V2.0
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../11-Resources/Resources/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    11 Resources
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../12-Reflection/Reflection/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    12 Reflection
   </span>
   
 
@@ -1125,7 +1266,16 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Power System Overview">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Usage">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1172,6 +1322,9 @@
 <p>With multiple motors being used in this subsystem, it was important to understand the possible loads the system could experience. I calculated the expected load by taking the stall current of the two stepper motors and adding the highest typical current draw of the other critical components. Using this information, I added a safety margin of <strong>25%</strong> and determined that the maximum possible load would be approximately <strong>3500 mA</strong>.</p>
 <p>Based on this calculation, I decided to use a <strong>12 V, 5000 mA wall power supply</strong> along with a compatible <strong>barrel jack connector</strong> to ensure the system can reliably meet its power requirements. This also leaves enough headroom for potential future component upgrades or additional load.</p>
 <p>Although the system is designed to connect to the <strong>shared team power system or USB power</strong>, those sources are not capable of supplying the current required to operate the stepper motor subsystem. When powered from shared team power or USB, the <strong>motor functionality is disabled</strong>, but the microcontroller and low-power components can still operate for debugging and communication purposes.</p>
+<h2 id="power-usage">Power Usage</h2>
+<p>Given the issues in my design and the lack of motor operation, I only used a very small portion of the power I had budgeted. However, if those systems had functioned properly, I believe the allocated power would have been sufficient for the system.</p>
+<p>Since I had four separate ways to power the board, I should have incorporated additional protection mechanisms into the power system.</p>
 <h3 id="power-rails">Power Rails</h3>
 <p>There are <strong>two separate power levels</strong> on this board:</p>
 <ul>

@@ -387,12 +387,52 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../10-Reflection/Reflection/" class="md-tabs__link">
+        <a href="../../10-Hardware%20V2.0/Hardware%20V2.0/" class="md-tabs__link">
           
   
     
   
-  10 Reflection
+  10 Hardware V2.0
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../11-Resources/Resources/" class="md-tabs__link">
+          
+  
+    
+  
+  11 Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../12-Reflection/Reflection/" class="md-tabs__link">
+          
+  
+    
+  
+  12 Reflection
 
         </a>
       </li>
@@ -671,6 +711,15 @@
   <a href="#my-role-responsibilities" class="md-nav__link">
     <span class="md-ellipsis">
       My Role &amp; Responsibilities
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary table
     </span>
   </a>
   
@@ -1172,11 +1221,103 @@
         
   
   
-    <a href="../../10-Reflection/Reflection/" class="md-nav__link">
+    <a href="../../10-Hardware%20V2.0/Hardware%20V2.0/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    10 Reflection
+    10 Hardware V2.0
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../11-Resources/Resources/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    11 Resources
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../12-Reflection/Reflection/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    12 Reflection
   </span>
   
 
@@ -1275,6 +1416,15 @@
   <a href="#my-role-responsibilities" class="md-nav__link">
     <span class="md-ellipsis">
       My Role &amp; Responsibilities
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary table
     </span>
   </a>
   
@@ -1476,7 +1626,62 @@
 
 <h2 id="my-role-responsibilities">My Role &amp; Responsibilities</h2>
 <p>I am responsible for the Camera Actuation subsystem. This subsystem controls two stepper motor drivers to rotate a low-weight camera and uses a Hall effect sensor to establish a repeatable “home” position reference. The microcontroller generates STEP and DIR pulse signals (and enable control) for each motor driver, reads the Hall sensor as a digital interrupt input for homing, and communicates with the Control subsystem through a UART RX/TX link. The subsystem uses a 12V motor power rail for the stepper drivers/motors and a regulated 3.3V rail for the microcontroller and logic signals. The design prioritizes clean power distribution, grounding, and debouncing/filtering to prevent motor noise from causing resets or false home triggers.</p>
-<hr>
+<h2 id="summary-table">Summary table</h2>
+<table>
+<thead>
+<tr>
+<th>Subsystem</th>
+<th>Component</th>
+<th>Part Number</th>
+<th>Key Specs</th>
+<th>Reason for Selection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microcontroller</td>
+<td>ESP32-S3</td>
+<td>ESP32-S3-WROOM</td>
+<td>3.3V logic, dual-core, UART capable</td>
+<td>Handles motor control, UART communication, and sensor input in a single platform</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>Buck Converter</td>
+<td>AP63203WU-7</td>
+<td>3.3V output, 2A max, 3.8–32V input</td>
+<td>Provides sufficient current headroom and efficient 3.3V regulation from 12V rail</td>
+</tr>
+<tr>
+<td>Sensor</td>
+<td>Hall Effect</td>
+<td>DRV5053</td>
+<td>Analog output, 2.7–6V operation</td>
+<td>Enables precise home position detection using ADC thresholding</td>
+</tr>
+<tr>
+<td>Actuator</td>
+<td>Stepper Motor</td>
+<td>NEMA 14 Bipolar</td>
+<td>1.8° step angle, ~0.4A/phase, 12V</td>
+<td>Provides balance of precision, torque, and compact size for camera movement</td>
+</tr>
+<tr>
+<td>Motor Driver</td>
+<td>Stepper Driver</td>
+<td>DRV8825</td>
+<td>Up to 45V, ~2.2A/phase, microstepping</td>
+<td>Reliable, widely supported, and compatible with 12V system and STEP/DIR control</td>
+</tr>
+<tr>
+<td>---</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="modules-selected-major-components">Module's Selected Major Components</h2>
 <h2 id="power-management">Power Management</h2>
 <h3 id="ap63203wu-7">AP63203WU-7</h3>
