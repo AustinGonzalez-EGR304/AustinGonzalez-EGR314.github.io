@@ -29,7 +29,6 @@ However, several key requirements were not fully achieved due to PCB design issu
 
 ## Lessons Learned
 
-## Lessons Learned
 
 1. One of the most important lessons I learned is the importance of thoroughly understanding a microcontroller datasheet before beginning a design. Misinterpreting pin functions led to major PCB issues that could not be corrected after fabrication.
 
