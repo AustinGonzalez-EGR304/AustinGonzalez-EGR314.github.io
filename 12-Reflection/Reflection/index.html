@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#review-of-modules-success" class="md-skip">
           Skip to content
         </a>
       
@@ -1122,9 +1122,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#review-of-modules-success" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Review of Module’s Success
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microcontroller-module-startup-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microcontroller / Module Startup Tips
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lessons-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lessons Learned
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations-for-future-students" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations for Future Students
     </span>
   </a>
   
@@ -1227,9 +1254,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#review-of-modules-success" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Review of Module’s Success
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microcontroller-module-startup-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microcontroller / Module Startup Tips
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lessons-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lessons Learned
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations-for-future-students" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations for Future Students
     </span>
   </a>
   
@@ -1252,8 +1306,67 @@
 
   <h1>Reflection</h1>
 
-<h2 id="overview">Overview</h2>
-<p>maybe the reflection was the friends we made along the way...</p>
+<h2 id="review-of-modules-success">Review of Module’s Success</h2>
+<p>Overall, my module was partially successful in meeting its intended requirements. I was able to implement UART communication within the daisy-chain system and correctly parse incoming messages based on sender, receiver, and message type. The subsystem successfully determined whether a message was intended for it and either acted on it or forwarded it downstream. I also implemented preset-based camera movement logic and a roll-call response, demonstrating correct message handling behavior.</p>
+<p>Additionally, I was able to successfully interface with my I2C sensor in an off-board breadboard setup. This confirmed that my sensor configuration and communication code were functioning correctly.</p>
+<p>However, several key requirements were not fully achieved due to PCB design issues. The stepper motor system did not function as intended, and onboard I2C communication was unreliable. The off-board success of the sensor indicates that the failure was due to PCB layout, pin configuration, or electrical design rather than software or component selection. These issues ultimately prevented full system integration and reliable operation of the complete module.</p>
+<hr>
+<h2 id="microcontroller-module-startup-tips">Microcontroller / Module Startup Tips</h2>
+<ul>
+<li>Always verify pin functionality in the datasheet before assigning them in your design.</li>
+<li>Double-check which pins are required for boot configuration and ensure they are not being unintentionally driven.</li>
+<li>Use proper pull-up resistors for I2C lines and confirm voltage levels before debugging software.</li>
+<li>Start with a minimal working system (UART or LED blink) before integrating additional peripherals.</li>
+<li>Avoid using all available pins; leave extra pins available for debugging and reconfiguration.</li>
+<li>Test communication protocols (UART, I2C) on a breadboard before committing to a PCB.</li>
+<li>If a subsystem fails, test it independently off-board to determine whether the issue is hardware or software related.</li>
+<li>Clearly label and document all pin assignments during the design process.</li>
+<li>Validate power rails early to ensure all components receive correct voltage levels.</li>
+<li>Use LEDs or serial output to confirm code execution during early debugging.</li>
+</ul>
+<hr>
+<h2 id="lessons-learned">Lessons Learned</h2>
+<ol>
+<li>
+<p>One of the most important lessons I learned is the importance of thoroughly understanding a microcontroller datasheet before beginning a design. Misinterpreting pin functions led to major PCB issues that could not be corrected after fabrication.</p>
+</li>
+<li>
+<p>I learned that iterative design is critical. Attempting to implement a full system at once made debugging significantly more difficult compared to building and validating smaller subsystems first.</p>
+</li>
+<li>
+<p>Proper electrical design practices are essential, especially for communication protocols such as I2C. Incorrect pull-up configurations can completely prevent communication.</p>
+</li>
+<li>
+<p>I learned that different parts of a circuit can interfere with each other. In my case, button wiring affected I2C voltage levels and prevented proper operation.</p>
+</li>
+<li>
+<p>Separating hardware and software debugging is extremely important. Testing my I2C sensor off-board confirmed that my code was correct and isolated the issue to the PCB.</p>
+</li>
+<li>
+<p>I learned the importance of validating subsystems independently before integrating them into a full system.</p>
+</li>
+<li>
+<p>Leaving flexibility in a design is critical. Using nearly all available microcontroller pins limited my ability to troubleshoot and reroute signals.</p>
+</li>
+<li>
+<p>Simple debugging tools such as LEDs and serial output are very effective for verifying system behavior during early development.</p>
+</li>
+<li>
+<p>Hardware debugging requires a structured and methodical approach, especially when dealing with both electrical and software issues at the same time.</p>
+</li>
+<li>
+<p>Time management is crucial in hardware-based projects, as debugging physical systems often takes significantly longer than expected.</p>
+</li>
+</ol>
+<hr>
+<h2 id="recommendations-for-future-students">Recommendations for Future Students</h2>
+<ol>
+<li>Start with a minimal working system and gradually add complexity instead of trying to implement the full design at once.</li>
+<li>Carefully read and understand your microcontroller datasheet, especially pin functions and boot requirements, before creating a PCB design.</li>
+<li>Always test critical components and communication protocols on a breadboard before committing to a final PCB.</li>
+<li>Leave extra pins and design flexibility in your system so you can troubleshoot and make adjustments if needed.</li>
+<li>Standardize package size and common components amongst your teammates to keep parts sharing and ordering easy. </li>
+</ol>
 
 
 

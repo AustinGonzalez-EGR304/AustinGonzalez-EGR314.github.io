@@ -1,5 +1,5 @@
 ---
-title: Reflection
+title: Hardware V2.0
 ---
 
 ## Review of Module's Sucess
