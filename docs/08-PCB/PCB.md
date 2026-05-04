@@ -12,7 +12,11 @@ my modules PCB is a 50x100mm 2 layer pcb that utlilizes the parts listed in the 
 ![alt text](FRONTcu314.png)
 ## Back side copper
 ![alt text](BACKcu314.png) 
-
+## Raw PCB
+![alt text](IMG_3764.JPEG)
+![alt text](IMG_3765.JPEG) 
+## Populated PCB
+![alt text](austin_front.jpg)
 ## Resouces
 
 The PCB as a Zip folder can be downloaded [*here*](EGR314CameraActuator6.0.zip).

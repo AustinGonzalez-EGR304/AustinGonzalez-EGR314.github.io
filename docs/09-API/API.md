@@ -5,33 +5,85 @@ title: API
 ## Overview
 ## Camera Actuation Subsystem – Message Handling
 
-The Camera Actuation subsystem is responsible for interpreting and responding to specific command messages within the daisy chain communication system. It processes incoming data to control the movement and positioning of the camera and its supporting arm. When relevant messages are received, the subsystem extracts the required parameters and adjusts the camera accordingly to achieve the desired orientation.
+The Camera Actuation subsystem receives UART messages in a daisy-chain communication system. It parses incoming packets and determines whether to act on them or forward them downstream.
 
-This subsystem specifically handles messages related to setting the camera’s position and making fine adjustments to its angle. Messages that do not pertain to camera movement are passed through unchanged to the next module in the chain, ensuring seamless communication across subsystems. Any invalid or unrecognized messages are discarded to maintain system reliability and prevent unintended behavior.
+Each message contains a sender ID, receiver ID, and a message type. The subsystem only responds to messages addressed to its ID (`G`) or to broadcast messages.
 
+- Valid messages → processed
+- Unknown messages → forwarded
+- Malformed messages → discarded
 
 ---
 
-## Messages
+## Message Format
 
-### Set Camera Angle
+All messages follow the structure below:
 
-This message commands the camera to move to a specific predefined angle.
+| Byte | Description |
+|------|------------|
+| 0 | `'A'` (Prefix – start wrapper) |
+| 1 | `'Z'` (Start Byte) |
+| 2 | Sender ID (char) |
+| 3 | Receiver ID (char) |
+| 4 | Message Type (char) |
+| 5 | `'Y'` (End Byte) |
+| 6 | `'B'` (Suffix – end wrapper) |
 
-| Byte(s) | Variable Name | Variable Type | Min Value | Max Value | Example |
-|--------|--------------|--------------|----------|----------|--------|
-| 1–2 | message_type | uint8_t | 3 | 3 | 3 |
+### Example
 
-### Adjust Angle
+- Sender: `Z`
+- Receiver: `G`
+- Type: `U` (Preset 1)
 
-This message allows fine adjustment of the camera position using X and Y coordinates.
+---
 
-| Byte(s) | Variable Name | Variable Type | Min Value | Max Value | Example |
-|--------|--------------|--------------|----------|----------|--------|
-| 1–2 | message_type | uint8_t | 8 | 8 | 8 |
-| 3 | x_value | uint16_t | 0 | 360 | 350 |
-| 4 | y_value | uint16_t | 0 | 360 | 25 |
+## Supported Messages
+
+### Camera Preset Commands
+
+These messages move the camera to predefined positions.
+
+| Message Type | Description |
+|-------------|------------|
+| `U` | Move to Preset 1 |
+| `D` | Move to Preset 2 |
+| `C` | Move to Preset 3 |
+
+---
+
+### Roll Call (Broadcast)
+
+| Field | Value |
+|------|------|
+| Receiver | `X` |
+
+When a message is sent to receiver `X`, the subsystem performs a roll call response (LED sequence).
+
+---
+
+## Behavior
+
+### If Receiver == `G` (This Module)
+- Executes camera movement based on `type`
+
+### If Receiver == `X` (Broadcast)
+- Executes roll call sequence
+
+### If Receiver != `G`
+- Forwards message unchanged
+
+### Error Handling
+- Packets from self → discarded
+- Malformed packets → discarded
+- Buffer overflow → reset
+
+---
+
+## Notes
+
+- Message type is a **single character**, not numeric
+- No variable-length payload is used
+- Camera positions are **preset-based**, not angle-based
 
 
-
-The Code as a Zip folder of the project [*here*](SubsystemMessage.zip).`
+The testing code as a zip folder of the project [*here*](SubsystemMessage.zip).
