@@ -66,10 +66,10 @@ nav:
   - Requirements: 01-Requirements/Requirements.md
   - Block Diagram: 02-Block-Diagram/Block-Diagram.md
   - Component Selection: 03-Component-Selection/Component-Selection.md
-  - Microcontroller Selection: 04-Microcontroller-Selection/Microcontroller-Selection.md
+  - Microcontroller Selection: 04-Microcontroller-Selection/Microcontroller Selection.md
   - Power Budget: 05-Power-Budget/Power Budget.md
-  - Schematic: 07-Schematic/schematic.md
-  - BOM: 06-BOM/BOM.md
+  - Schematic: 06-Schematic/schematic.md
+  - BOM: 07-BOM/BOM.md
   - PCB: 08-PCB/PCB.md
   - API: 09-API/API.md
   - Hardware Version 2.0: 10-Hardware V2.0/Hardware V2.0.md
