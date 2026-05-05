@@ -1,7 +1,7 @@
 site_name: EGR 314 Gonzalez Data Sheet
 theme:
   name: material
-  custom_dir: custom_theme/
+  custom_dir:  custom_theme/partials
   palette:
     primary: blue
     accent: indigo
@@ -20,9 +20,9 @@ theme:
     - navigation.prune
     - content.action.edit
     - navigation.footer
-    - navigation.sections
+#   - navigation.sections
     - navigation.expand
-#    - navigation.instant # doesn't work that well
+#   - navigation.instant # doesn't work that well
 
 markdown_extensions:
   - attr_list #add attributes using curly brackets to images, see https://squidfunk.github.io/mkdocs-material/reference/images/
@@ -56,11 +56,26 @@ extra_javascript:
 not_in_nav: |
   static
   
-copyright: "Copyright &copy; 2026 Austin Gonzalez"
+copyright: "Copyright &copy; 2026 Team 201"
 
 extra:
   generator: false
   social:
     - icon: fontawesome/regular/file-code
       link: /2026_spring
-      name: 2023 Site    
+      name: 2026 Site  
+
+nav:
+  - Home: index.md
+  - Requirements: 01-Requirements/Requirements.md
+  - Block Diagram: 02-Block-Diagram/Block-Diagram.md
+  - Component Selection: 03-Component-Selection/Component-Selection.md
+  - Microcontroller Selection: 04-Microcontroller-Selection/Microcontroller-Selection.md
+  - Power Budget: 05-Power-Budget/Power Budget.md
+  - Schematic: 07-Schematic/schematic.md
+  - BOM: 06-BOM/BOM.md
+  - PCB: 08-PCB/PCB.md
+  - API: 09-API/API.md
+  - Hardware Version 2.0: 10-Hardware V2.0/Hardware V2.0.md
+  - Resources: 11-Resources/Resources.md
+  - Reflection: 12-Reflection/Reflection.md
