@@ -10,3 +10,14 @@ blockquote{
         color: var(--md-typeset-color);
     }
 }
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
+
+  .md-nav--primary {
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
+}
