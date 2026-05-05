@@ -6,6 +6,10 @@
       
       
       
+        <link rel="prev" href="../../05-Power-Budget/Power%20Budget/">
+      
+      
+        <link rel="next" href="../../07-BOM/BOM/">
       
       
       <link rel="icon" href="../../static/logo314.png">
@@ -241,7 +245,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../04-Microcontroller-Selection/Microcontroller-Selection.md" class="md-tabs__link">
+      <a href="../../04-Microcontroller-Selection/Microcontroller%20Selection/" class="md-tabs__link">
         
   
     
@@ -273,9 +277,11 @@
         
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../../07-Schematic/schematic.md" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
     
@@ -292,7 +298,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../06-BOM/BOM.md" class="md-tabs__link">
+      <a href="../../07-BOM/BOM/" class="md-tabs__link">
         
   
     
@@ -514,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-Microcontroller-Selection/Microcontroller-Selection.md" class="md-nav__link">
+      <a href="../../04-Microcontroller-Selection/Microcontroller%20Selection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -551,10 +557,28 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../07-Schematic/schematic.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Schematic
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -563,6 +587,42 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resouces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resouces
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -574,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-BOM/BOM.md" class="md-nav__link">
+      <a href="../../07-BOM/BOM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -744,7 +804,7 @@
                   
 
 
-  <h1>Module Schematic</h1>
+  <h1>Schematic</h1>
 
 <h2 id="overview">Overview</h2>
 <p>This schematic is design to support camera actuation featurting 2 stepper motors and drivers to provide near 360 degree camera control horizontally and up to 180 degrees vertically. It also features a serial hall effect sensor to allow for near real time camera postion and a repeatable home postion for start up. The logic of this system is handled by an ESP32 microcontroller. The stepper motors and drivers are all powered via a12v power supply and the microcontroller is suppliedd 3.3v via a buck regulator. </p>
@@ -785,6 +845,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../../05-Power-Budget/Power%20Budget/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Power Budget">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Power Budget
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../07-BOM/BOM/" class="md-footer__link md-footer__link--next" aria-label="Next: BOM">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                BOM
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
