@@ -1,7 +1,7 @@
 site_name: EGR 314 Gonzalez Data Sheet
 theme:
   name: material
-  custom_dir:  custom_theme/partials
+  custom_dir:  custom_theme/Partials
   palette:
     primary: blue
     accent: indigo
@@ -37,10 +37,6 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
-draft_docs: |
-  **/*_unpublished.md
-  **/*_draft.md
-  **/*_draft**
   
 plugins:
   - search
